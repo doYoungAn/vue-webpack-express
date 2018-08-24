@@ -29,6 +29,16 @@ class ApiService {
     });
   }
 
+  deleteTodo(id) {
+    return new Promise((resolve, reject) => {
+      axios.delete(`${endpoint}/todos/${id}`).then((res) => {
+        resolve();
+      }).catch((err) => {
+        reject();
+      });
+    })
+  }
+
 }
 
 export const apiService = new ApiService();

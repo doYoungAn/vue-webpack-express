@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>ToDo List</h1>
-    <TodoList />
-    <Form />
+    <TodoList ref="todoList"/>
+    <Form @created="created" />
   </div>
 </template>
 
@@ -14,6 +14,12 @@ export default {
   components: {
     TodoList,
     Form
+  },
+  methods: {
+    created() {
+      console.log('ssssss', this.$refs.todoList);
+      this.$refs.todoList.getTodos();
+    }
   }
 }
 </script>

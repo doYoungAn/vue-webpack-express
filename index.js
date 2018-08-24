@@ -5,7 +5,8 @@ const app = express();
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-control-Allow-Headers', "otigin X-Requested-width, Content-Type, Accept");
+  res.header('Access-control-Allow-Headers', "origin X-Requested-width, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
   next();
 });
 

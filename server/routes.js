@@ -18,26 +18,7 @@ function random(min, max) {
   return Math.floor(randVal);
 }
 
-const TODOS = [
-  {
-    _id: 1,
-    title: 'Vue',
-    image: IMAGES[0],
-    content: '1주차는 Vue에 대해서 알아봅니다.'
-  },
-  {
-    _id: 2,
-    title: 'Angular',
-    image: IMAGES[1],
-    content: '2주차는 Angular에 대해서 알아봅니다.'
-  },
-  {
-    _id: 3,
-    title: 'React',
-    image: IMAGES[2],
-    content: '3주차는 React에 대해서 알아봅니다.'
-  }
-];
+const TODOS = [];
 
 router.get('/todos', (req, res) => {
   console.log('[todos] read');
@@ -58,12 +39,19 @@ router.post('/todo', (req, res) => {
 
 router.put('/todos/:id', (req, res) => {
   console.log('[todos] update');
-  res.status(200).json({});
 });
 
 router.delete('/todos/:id', (req, res) => {
-  console.log('[todos] delete');
-  res.status(200).json({});
+  console.log('[todos] delete' ,req.query);
+  let index = TODOS.findIndex((todo) => {
+    return todo._id == req.params.id;
+  });
+  if (index > -1) {
+    TODOS.splice(index, 1);
+    res.status(200).json({});
+  } else {
+    res.status(200).json({});
+  }
 });
 
 module.exports = router;

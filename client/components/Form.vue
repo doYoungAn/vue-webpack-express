@@ -50,7 +50,9 @@ export default {
       e.preventDefault();
       console.log('[Form component] Submit');
       apiService.addTodo(this.form.title, this.form.content).then(() => {
-
+        this.form.title = '';
+        this.form.content = '';
+        this.$emit('created');
       }).catch((err) => {
 
       });
