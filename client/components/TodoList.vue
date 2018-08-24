@@ -1,7 +1,7 @@
 <template>
   <div>
     <b-card-group v-for="todo in todos" v-bind:key="todo._id" deck>
-      <b-card img-src="https://placekitten.com/1000/300" img-alt="Card image" :title="todo.title" img-top>
+      <b-card :img-src="todo.image" img-alt="Card image" :title="todo.title" img-top>
         <p class="cart-text">
           {{ todo.content }}
         </p>

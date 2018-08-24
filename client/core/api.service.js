@@ -8,7 +8,6 @@ class ApiService {
   }
 
   getTodos() {
-    // return axios.get(`${endpoint}/todos`);
     return new Promise((resolve, reject) => {
       axios.get(`${endpoint}/todos`).then((res) => {
         console.log('get', res);
@@ -18,7 +17,16 @@ class ApiService {
         reject();
       });
     });
-    
+  }
+
+  addTodo(title, content) {
+    return new Promise((resolve, reject) => {
+      axios.post(`${endpoint}/todo`, {title: title, content: content}).then((res) => {
+        resolve();
+      }).catch((err) => {
+        reject();
+      });
+    });
   }
 
 }
