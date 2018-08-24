@@ -8,7 +8,17 @@ class ApiService {
   }
 
   getTodos() {
-    return axios.get(`${endpoint}/todos`);
+    // return axios.get(`${endpoint}/todos`);
+    return new Promise((resolve, reject) => {
+      axios.get(`${endpoint}/todos`).then((res) => {
+        console.log('get', res);
+        resolve(res.data);
+        console.log('is pass?')
+      }).catch((err) => {
+        reject();
+      });
+    });
+    
   }
 
 }
