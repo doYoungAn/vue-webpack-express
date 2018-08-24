@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/doYoungAn/vue-webpack-express#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "express": "^4.16.3",
     "vue": "^2.5.17"
   },
